@@ -21,81 +21,119 @@ if (isset($_SESSION['userLoggedIn'])) {
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body>L̥
 
-<div id="nowPlayingBarContainer">
-    <div id="nowPlayingBar">
+<div id="mainContainer">
 
-        <div id="nowPlayingLeft">
-            <div class="content">
-                <span class="albumLink">
-                    <img class="albumArtwork" src="https://lh3.googleusercontent.com/dB3Dvgf3VIglusoGJAfpNUAANhTXW8K9mvIsiIPkhJUAbAKGKJcEMPTf0mkSexzLM5o=w300" alt="">
-                </span>
-                <div class="trackInfo">
-                    <span class="trackName">
-                        <span>In to the end</span>
-                    </span>
-                    <span class="artistName">
-                        <span>Eminum</span>
-                    </span>
+    <div id="topContainer">
+
+        <div id="navBarContainer">
+            <nav class="navBar">
+
+                <a href="index.php" class="logo">
+                    <i class="icon ion-logo-ionitron"></i>
+                </a>
+                <div class="group">
+                    <div class="navItem search">
+                        <a href="browse.php" class="navItemLink">Search</a>
+                        <span><i class="icon ion-md-search"></i></span>
+                    </div>
                 </div>
-            </div>
+                <div class="group">
+                    <div class="navItem">
+                        <a href="yourmusic.php" class="navItemLink">Browse</a>
+                    </div>
+                    <div class="navItem">
+                        <a href="profile.php" class="navItemLink">Your Music</a>
+                    </div>
+                    <div class="navItem">
+                        <a href="search.php" class="navItemLink">Linkin Park</a>
+                    </div>
+                </div>
+
+
+            </nav>
         </div>
 
-        <div id="nowPlayingCenter">
-            <div class="content playerControls">
-                <div class="buttons">
-                    <button class="controlButton shuffle" title="shuffle button">
-                        <i class="icon ion-md-shuffle"></i>
-                    </button>
-                    <button class="controlButton previous" title="previous button">
-                        <i class="icon ion-md-skip-backward"></i>
-                    </button>
-                    <button class="controlButton play" title="play button">
-                        <i class="icon ion-md-play"></i>
-                    </button>
-                    <button class="controlButton pause" title="pause button" style="display: none">
-                        <i class="icon ion-md-pause"></i>
-                    </button>
-                    <button class="controlButton next" title="next button">
-                        <i class="icon ion-md-skip-forward"></i>
-                    </button>
-                    <button class="controlButton repeat" title="repeat button">
-                        <i class="icon ion-md-repeat"></i>
-                    </button>
-                </div>
+    </div>
 
-                <div class="playbackBar">
-                    <span class="progressTime current">0.00</span>
+    <div id="nowPlayingBarContainer">
+        <div id="nowPlayingBar">
+
+            <div id="nowPlayingLeft">
+                <div class="content">
+                <span class="albumLink">
+                    <img class="albumArtwork"
+                         src="https://lh3.googleusercontent.com/dB3Dvgf3VIglusoGJAfpNUAANhTXW8K9mvIsiIPkhJUAbAKGKJcEMPTf0mkSexzLM5o=w300"
+                         alt="">
+                </span>
+                    <div class="trackInfo">
+                    <span class="trackName">
+                        <span>In the end</span>
+                    </span>
+                        <span class="artistName">
+                        <span>Linkin Park</span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nowPlayingCenter">
+                <div class="content playerControls">
+                    <div class="buttons">
+                        <button class="controlButton shuffle" title="shuffle button">
+                            <i class="icon ion-md-shuffle"></i>
+                        </button>
+                        <button class="controlButton previous" title="previous button">
+                            <i class="icon ion-md-skip-backward"></i>
+                        </button>
+                        <button class="controlButton play" title="play button">
+                            <i class="icon ion-md-play"></i>
+                        </button>
+                        <button class="controlButton pause" title="pause button" style="display: none">
+                            <i class="icon ion-md-pause"></i>
+                        </button>
+                        <button class="controlButton next" title="next button">
+                            <i class="icon ion-md-skip-forward"></i>
+                        </button>
+                        <button class="controlButton repeat" title="repeat button">
+                            <i class="icon ion-md-repeat"></i>
+                        </button>
+                    </div>
+
+                    <div class="playbackBar">
+                        <span class="progressTime current">0.00</span>
+                        <div class="progressBar">
+                            <div class="progressBarBg">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <span class="progressTime remaining">0.00</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="nowPlayingRight">
+                <div class="volumeBar">
+                    <button class="controlButton volume" title="volume button">
+                        <i class="icon ion-md-volume-high"></i>
+                    </button>
+                    <button class="controlButton mute" title="mute button" style="display: none">
+                        <i class="icon ion-md-volume-off"></i>
+                    </button>
                     <div class="progressBar">
                         <div class="progressBarBg">
                             <div class="progress"></div>
                         </div>
                     </div>
-                    <span class="progressTime remaining">0.00</span>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="nowPlayingRight">
-            <div class="volumeBar">
-                <button class="controlButton volume" title="volume button">
-                    <i class="icon ion-md-volume-high"></i>
-                </button>
-                <button class="controlButton mute" title="mute button" style="display: none">
-                    <i class="icon ion-md-volume-off"></i>
-                </button>
-                <div class="progressBar">
-                    <div class="progressBarBg">
-                        <div class="progress"></div>
-                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
+
 
 </body>
 </html>
