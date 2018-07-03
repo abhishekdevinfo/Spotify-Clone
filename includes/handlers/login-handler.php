@@ -6,7 +6,7 @@ if(isset($_POST['loginButton'])) {
 
     $result = $account->login($userName, $password);
 
-    if($result == true) {
+    if($result) {
         $_SESSION['userLoggedIn'] = $userName;
         header("Location: index.php");
     }

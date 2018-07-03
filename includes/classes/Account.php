@@ -82,11 +82,12 @@
 
         private function validateEmails($em, $em2) {
             if($em != $em2) {
-                array_push($this->errorArray, Constants::$emailsDoNoTMatch);
+                array_push($this->errorArray, Constants::$emailsDoNotMatch);
                 return;
             }
 
             if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+                // FILTER_VALIDATE_EMAIL - Checks email in correct format.
                 array_push($this->errorArray, Constants::$emailInvalid);
                 return;
             }
@@ -105,6 +106,7 @@
             }
 
             if(preg_match('/[^A-Za-z0-9]/', $pw)) {
+                // Check if it contains anything other than alpha-numeric
                 array_push($this->errorArray, Constants::$passwordsNotAlphaNumeric);
                 return;
             }

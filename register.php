@@ -1,7 +1,7 @@
 <?php
     include("includes/config.php");
-    include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
+    include("includes/classes/Account.php");
 
     $account = new Account($con);
 
@@ -9,6 +9,7 @@
     include("includes/handlers/login-handler.php");
 
     function getInputValue($name) {
+        //For checking the input in input tag
         if(isset($_POST[$name])) {
             echo $_POST[$name];
         }
@@ -72,7 +73,7 @@
 
                 <p>
                     <?php echo $account->getError(Constants::$emailInvalid); ?>
-                    <?php echo $account->getError(Constants::$emailsDoNoTMatch); ?>
+                    <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
                     <?php echo $account->getError(Constants::$emailTaken); ?>
                     <label for="email">Email</label>
                     <input id="email" type="email" name="email" placeholder="e.g. mohit.sharma@gmail.com" required value="<?php getInputValue('email'); ?>">
@@ -121,18 +122,18 @@
     <?php
     if(isset($_POST['registerButton'])) {
         echo '<script>
-                    $(document).ready(function() {
-                        $("#loginForm").hide();
-                        $("#registerForm").show();
-                    });
-                  </script>';
+                $(document).ready(function() {
+                    $("#loginForm").hide();
+                    $("#registerForm").show();
+                });
+              </script>';
     } else {
         echo '<script>
-                    $(document).ready(function() {
-                        $("#loginForm").show();
-                        $("#registerForm").hide();
-                    });
-                  </script>';
+                $(document).ready(function() {
+                    $("#loginForm").show();
+                    $("#registerForm").hide();
+                });
+              </script>';
     }
     ?>
 </body>
