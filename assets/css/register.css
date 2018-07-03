@@ -178,12 +178,7 @@ h3 {
 }
 
 #loginText h1 {
-    background: #00c3ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #58d8b1;
     font-size: 3.9em;
     font-weight: bold;
 }
@@ -205,22 +200,22 @@ h3 {
 
 #loginText li i {
     padding-right: 10px;
-    background: #00c3ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #58d8b1;
     font-size: 1.2em;
 }
 
 #inputContainer .errorMessage {
     font-size: 12px;
     display: block;
-    background: #00c3ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #58d8b1;
+}
+
+@supports (background-clip: text) {
+    #loginText h1, #loginText li i, #inputContainer .errorMessage {
+        background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
