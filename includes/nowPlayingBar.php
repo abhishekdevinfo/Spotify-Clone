@@ -47,7 +47,7 @@ $jsonArray = json_encode($resultArray);
 
     function playSong() {
         if(audioElement.audio.currentTime == 0) {
-            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id})
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id});
         }
 
         $(".controlButton.play").hide();
