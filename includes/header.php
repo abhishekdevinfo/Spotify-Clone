@@ -1,5 +1,8 @@
 <?php
 include("includes/config.php");
+include("includes/classes/Artist.php");
+include("includes/classes/Album.php");
+include("includes/classes/Song.php");
 
 //session_destroy();  // LOGOUT
 
@@ -21,7 +24,7 @@ if (isset($_SESSION['userLoggedIn'])) {
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>L̥
+<body>
 
 <div id="mainContainer">
 

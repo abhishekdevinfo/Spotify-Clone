@@ -291,3 +291,149 @@ h3 {
 #mainContent {
     padding: 0 20px;
 }
+
+.pageHeadingBig {
+    padding: 20px;
+    text-align: center;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem img {
+    width: 100%;
+}
+
+.gridViewItem a {
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.gridViewInfo {
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*  ------ Album Page ------ */
+
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.entityInfo .leftSection {
+    width: 30%;
+    float: left;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+    width: 100%;
+}
+
+.entityInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
+}
+
+.entityInfo .rightSection h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+.entityInfo .rightSection p {
+    color: #939393;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+/*  ------ Album Page - Track List ------ */
+.trackList {
+    padding: 0;
+}
+
+.trackList .trackListRow {
+    height: 60px;
+    padding: 10px 10px 20px 10px;
+    list-style: none;
+}
+
+.trackListRow span {
+    color: #939393;
+    font-weight: 200;
+}
+
+.trackListRow:hover {
+    background-color: #282828;
+}
+
+.trackListRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.trackListRow .trackCount i {
+    visibility: hidden;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+.trackListRow:hover .trackCount i {
+    visibility: visible;
+    font-size: 20px;
+}
+
+.trackListRow .trackCount span {
+    visibility: visible;
+}
+
+.trackListRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+.trackListRow .trackInfo {
+    float: left;
+    width: 75%;
+}
+
+.trackListRow .trackInfo .trackName {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.trackListRow .trackInfo  span {
+    display: block;
+}
+
+.trackListRow .trackOption {
+    width: 5%;
+    float: left;
+    text-align: right;
+    font-size: 20px;
+}
+
+.trackListRow .trackOption i {
+    visibility: hidden;
+}
+
+.trackListRow:hover .trackOption i {
+    visibility: visible;
+}
+
+.trackListRow .trackDuration {
+    text-align: right;
+}
