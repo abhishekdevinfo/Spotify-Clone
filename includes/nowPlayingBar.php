@@ -21,6 +21,21 @@ $jsonArray = json_encode($resultArray);
 
         $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
             let track = JSON.parse(data);
+
+            $(".trackName span").text(track.title);
+
+            $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+                let artist = JSON.parse(data);
+
+                $(".artistName span").text(artist.name);
+            });
+
+            $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+                let album = JSON.parse(data);
+                console.log(album.artworkPath);
+                $(".albumLink img").attr("src",album.artworkPath);
+            });
+
             audioElement.setTrack(track.path);
             audioElement.play();
         });
@@ -50,15 +65,15 @@ $jsonArray = json_encode($resultArray);
             <div class="content">
                 <span class="albumLink">
                     <img class="albumArtwork"
-                         src="https://lh3.googleusercontent.com/dB3Dvgf3VIglusoGJAfpNUAANhTXW8K9mvIsiIPkhJUAbAKGKJcEMPTf0mkSexzLM5o=w300"
+                         src=""
                          alt="">
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>In the end</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
-                        <span>Linkin Park</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
