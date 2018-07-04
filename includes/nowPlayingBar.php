@@ -15,7 +15,33 @@ $jsonArray = json_encode($resultArray);
         currentPlaylist = <?php echo $jsonArray; ?>;
         audioElement = new Music();
         setTrack(currentPlaylist[0], currentPlaylist, false);
+
+        $(".playbackBar .progressBar").mousedown(function () {
+            mouseDown = true;
+        });
+
+        $(".playbackBar .progressBar").mousemove(function (e) {
+            if(mouseDown) {
+                // Set time of songs, depending on position on mouse
+                timeFromOffset(e,this);
+            }
+        });
+
+        $(".playbackBar .progressBar").mouseup(function (e) {
+            timeFromOffset(e,this);
+        });
+
+        $(document).mouseup(function() {
+            mouseDown = false;
+        })
+
     });
+
+    function timeFromOffset(mouse, progressBar) {
+        let percentage = mouse.offsetX / $(progressBar).width() * 100;
+        let seconds = audioElement.audio.duration * (percentage / 100);
+        audioElement.setTime(seconds);
+    }
 
     function setTrack(trackId, newPlaylist, play) {
 
@@ -32,7 +58,7 @@ $jsonArray = json_encode($resultArray);
 
             $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
                 let album = JSON.parse(data);
-                console.log(album.artworkPath);
+                // console.log(album.artworkPath);
                 $(".albumLink img").attr("src",album.artworkPath);
             });
 
