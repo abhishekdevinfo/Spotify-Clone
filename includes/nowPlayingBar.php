@@ -69,6 +69,12 @@ $jsonArray = json_encode($resultArray);
     }
 
     function nextSong() {
+        if(repeat) {
+            audioElement.setTime(0);
+            playSong();
+            return;
+        }
+
         if(currentIndex === currentPlaylist.length - 1) {
             currentIndex = 0;
         } else {
@@ -79,10 +85,18 @@ $jsonArray = json_encode($resultArray);
         setTrack(trackToPlay, currentPlaylist, true);
     }
 
+    function setRepeat() {
+        repeat = !repeat;
+        let iconColor = repeat ? "#ef4c4c" : "#a0a0a0";
+        $(".controlButton.repeat i").css("color", iconColor);
+    }
+
     function setTrack(trackId, newPlaylist, play) {
 
+        currentIndex = currentPlaylist.indexOf(trackId);
+        pauseSong();
+
         $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
-            currentIndex = currentPlaylist.indexOf(trackId);
 
             let track = JSON.parse(data);
 
@@ -162,10 +176,10 @@ $jsonArray = json_encode($resultArray);
                     <button class="controlButton pause" title="pause button" style="display: none" onclick="pauseSong()">
                         <i class="icon ion-md-pause"></i>
                     </button>
-                    <button class="controlButton next" title="next button">
+                    <button class="controlButton next" title="next button" onclick="nextSong()">
                         <i class="icon ion-md-skip-forward"></i>
                     </button>
-                    <button class="controlButton repeat" title="repeat button">
+                    <button class="controlButton repeat" title="repeat button" onclick="setRepeat()">
                         <i class="icon ion-md-repeat"></i>
                     </button>
                 </div>
