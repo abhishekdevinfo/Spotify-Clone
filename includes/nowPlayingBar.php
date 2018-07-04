@@ -18,7 +18,10 @@ $jsonArray = json_encode($resultArray);
     });
 
     function setTrack(trackId, newPlaylist, play) {
-        audioElement.setTrack("assets/music/Facing Demons_theway.m4a");
+
+        $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+            console.log(data);
+        });
 
         if(play) {
             audioElement.play();
