@@ -100,6 +100,12 @@ $jsonArray = json_encode($resultArray);
         $(".controlButton.repeat i").css("color", iconColor);
     }
 
+    function setMute() {
+        audioElement.audio.muted = !audioElement.audio.muted;
+        let iconChange = audioElement.audio.muted ? "icon ion-md-volume-off" : "icon ion-md-volume-high";
+        $("#nowPlayingRight i").attr("class", iconChange);
+    }
+
     function setTrack(trackId, newPlaylist, play) {
 
         currentIndex = currentPlaylist.indexOf(trackId);
@@ -208,12 +214,12 @@ $jsonArray = json_encode($resultArray);
 
         <div id="nowPlayingRight">
             <div class="volumeBar">
-                <button class="controlButton volume" title="volume button">
+                <button class="controlButton volume" title="volume button" onclick="setMute()">
                     <i class="icon ion-md-volume-high"></i>
                 </button>
-                <button class="controlButton mute" title="mute button" style="display: none">
-                    <i class="icon ion-md-volume-off"></i>
-                </button>
+<!--                <button class="controlButton mute" title="mute button" style="display: none">-->
+<!--                    <i class="icon ion-md-volume-off"></i>-->
+<!--                </button>-->
                 <div class="progressBar">
                     <div class="progressBarBg">
                         <div class="progress"></div>
