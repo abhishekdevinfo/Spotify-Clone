@@ -31,6 +31,10 @@ function Music() {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
 
+    this.audio.addEventListener("ended", function() {
+       nextSong();
+    });
+
     this.audio.addEventListener("canplay", function() {
         let duration = formatTime(this.duration);
         $(".progressTime.remaining").text(duration);
