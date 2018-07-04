@@ -1,3 +1,43 @@
+<?php
+$songsQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+
+$resultArray = array();
+
+while($row = mysqli_fetch_array($songsQuery)) {
+    array_push($resultArray, $row['id']);
+}
+
+$jsonArray = json_encode($resultArray);
+?>
+
+<script>
+    $(document).ready(function() {
+        currentPlaylist = <?php echo $jsonArray; ?>;
+        audioElement = new Music();
+        setTrack(currentPlaylist[0], currentPlaylist, false);
+    });
+
+    function setTrack(trackId, newPlaylist, play) {
+        audioElement.setTrack("assets/music/Facing Demons_theway.m4a");
+
+        if(play) {
+            audioElement.play();
+        }
+    }
+
+    function playSong() {
+        $(".controlButton.play").hide();
+        $(".controlButton.pause").show();
+        audioElement.play();
+    }
+
+    function pauseSong() {
+        $(".controlButton.pause").hide();
+        $(".controlButton.play").show();
+        audioElement.pause();
+    }
+</script>
+
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
 
@@ -28,10 +68,10 @@
                     <button class="controlButton previous" title="previous button">
                         <i class="icon ion-md-skip-backward"></i>
                     </button>
-                    <button class="controlButton play" title="play button">
+                    <button class="controlButton play" title="play button" onclick="playSong()">
                         <i class="icon ion-md-play"></i>
                     </button>
-                    <button class="controlButton pause" title="pause button" style="display: none">
+                    <button class="controlButton pause" title="pause button" style="display: none" onclick="pauseSong()">
                         <i class="icon ion-md-pause"></i>
                     </button>
                     <button class="controlButton next" title="next button">
