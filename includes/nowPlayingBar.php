@@ -68,6 +68,15 @@ $jsonArray = json_encode($resultArray);
         audioElement.setTime(seconds);
     }
 
+    function prevSong() {
+        if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+            audioElement.setTime(0);
+        } else {
+            currentIndex = currentIndex - 1;
+            setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+        }
+    }
+
     function nextSong() {
         if(repeat) {
             audioElement.setTime(0);
@@ -167,7 +176,7 @@ $jsonArray = json_encode($resultArray);
                     <button class="controlButton shuffle" title="shuffle button">
                         <i class="icon ion-md-shuffle"></i>
                     </button>
-                    <button class="controlButton previous" title="previous button">
+                    <button class="controlButton previous" title="previous button" onclick="prevSong()">
                         <i class="icon ion-md-skip-backward"></i>
                     </button>
                     <button class="controlButton play" title="play button" onclick="playSong()">
